@@ -5,6 +5,8 @@ const Container = styled.div`
   margin: 5px;
   height: 70vh;
   position: relative;
+  background-color: rgba(255, 192, 203, 0.316);
+  border-radius: 10px;
 `;
 const Image = styled.img`
   width: 100%;
