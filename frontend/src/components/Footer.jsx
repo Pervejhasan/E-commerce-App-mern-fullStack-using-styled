@@ -7,14 +7,17 @@ import RoomIcon from "@mui/icons-material/Room";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import React from "react";
 import styled from "styled-components";
+import { mobile } from "../../responsive.js";
 const Container = styled.div`
   display: flex;
+  ${mobile({ flexDirection: "column" })}
 `;
 const Left = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
   padding: 20px;
+  ${mobile({ textAlign: "center", padding: "10px" })}
 `;
 const Logo = styled.h2``;
 const Description = styled.p`
@@ -22,6 +25,7 @@ const Description = styled.p`
 `;
 const SocialContainer = styled.div`
   display: flex;
+  ${mobile({ justifyContent: "center" })}
 `;
 const SocialIcon = styled.div`
   width: 40px;
@@ -43,6 +47,9 @@ const Center = styled.div`
 `;
 const Title = styled.h3`
   margin-bottom: 30px;
+  ${mobile({
+    textAlign: "center",
+  })}
 `;
 const List = styled.ul`
   margin: 0;
@@ -50,12 +57,19 @@ const List = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  ${mobile({
+    flexDirection: "column",
+  })}
   cursor: pointer;
 `;
 const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
   transition: all 0.5s ease;
+  ${mobile({
+    textAlign: "center",
+    width: "100%",
+  })}
   &:hover {
     color: #f72f2f;
   }
@@ -64,15 +78,18 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ backgroundColor: "#eee" })}
 `;
 const ContactItem = styled.div`
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  ${mobile({ justifyContent: "center" })}
 `;
 const Payment = styled.img`
   width: 50%;
   cursor: pointer;
+  ${mobile({ width: "100%" })}
 `;
 
 const Footer = () => {

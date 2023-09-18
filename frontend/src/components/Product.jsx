@@ -26,20 +26,20 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5fbfd;
+  background-color: #ffffff;
   position: relative;
-
+  border-radius: 3px;
   &:hover ${Info} {
     opacity: 1;
   }
 `;
-const Circle = styled.div`
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-`;
+// const Circle = styled.div`
+//   height: 300px;
+//   width: 300px;
+//   border-radius: 50%;
+//   background-color: rgba(189, 180, 180, 0.268);
+//   position: absolute;
+// `;
 const Image = styled.img`
   height: 75%;
   z-index: 2;
@@ -66,7 +66,7 @@ const Product = ({ item }) => {
   const { image } = item;
   return (
     <Container>
-      <Circle />
+      {/* <Circle /> */}
       <Image src={`../../public/images/${image}`} />
       <Info>
         <Icon>

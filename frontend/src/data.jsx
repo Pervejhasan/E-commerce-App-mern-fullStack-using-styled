@@ -4,21 +4,21 @@ export const sliderItems = [
     img: "slider-image-4.png",
     title: "SUMMER SALE",
     description: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS",
-    bg: "#f9d4ed",
+    bgColor: "#f9d4ed",
   },
   {
     id: 2,
     img: "slider-image-6.png",
     title: "WINTER SALE",
     description: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS",
-    bg: "#dae4f5",
+    bgColor: "#dae4f5",
   },
   {
     id: 3,
     img: "slider-image-3.png",
     title: "POPULAR SALE",
     description: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS",
-    bg: "#f7e5e5",
+    bgColor: "#f7e5e5",
   },
 ];
 
@@ -36,7 +36,7 @@ export const categories = [
   {
     id: 3,
     image: "category-2.png",
-    title: "LIGHT JACKET",
+    title: "Black JACKET",
   },
 ];
 

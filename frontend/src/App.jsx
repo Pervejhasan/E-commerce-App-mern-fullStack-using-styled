@@ -1,13 +1,7 @@
-// import Home from "./pages/Home";
-// import ProductList from "./pages/ProductList";
-
-import Cart from "./pages/Cart.jsx";
-// import Login from "./pages/Login.jsx";
-
-// import Product from "./pages/Product";
+import Home from "./pages/Home";
 
 const App = () => {
-  return <Cart />;
+  return <Home />;
 };
 
 export default App;

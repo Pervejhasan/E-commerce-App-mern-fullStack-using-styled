@@ -1,17 +1,21 @@
 import styled from "styled-components";
-
+import { mobile } from "../../responsive.js";
 const Container = styled.div`
   flex: 1;
   margin: 5px;
   height: 70vh;
   position: relative;
-  background-color: rgba(255, 192, 203, 0.316);
-  border-radius: 10px;
+  background-color: rgba(237, 156, 227, 0.316);
+  border-radius: 8px;
 `;
 const Image = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  border-radius: 8px;
+  object-fit: contain;
+  ${mobile({
+    height: "60vh",
+  })}
 `;
 const Info = styled.div`
   position: absolute;
@@ -27,14 +31,17 @@ const Info = styled.div`
   align-items: center;
 `;
 const Title = styled.h1`
-  color: #ffffff;
+  color: black;
   margin-bottom: 20px;
-  font-size: 30px;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.632);
+  border-radius: 5px;
+  padding: 10px;
 `;
 const Button = styled.button`
   padding: 10px;
   border: none;
-  background-color: #534c4c;
+  background-color: #5f5e5e;
   color: #bdbbbb;
   font-weight: 700;
   cursor: pointer;

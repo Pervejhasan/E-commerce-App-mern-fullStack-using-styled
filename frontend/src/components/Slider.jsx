@@ -2,6 +2,7 @@ import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import { useState } from "react";
 import styled from "styled-components";
+import { mobile } from "../../responsive.js";
 import { sliderItems } from "../data";
 const Container = styled.div`
   width: 100%;
@@ -9,6 +10,9 @@ const Container = styled.div`
   display: flex;
   overflow: hidden;
   position: relative;
+  ${mobile({
+    display: "none",
+  })}
 `;
 const Arrow = styled.div`
   height: 50px;
@@ -32,8 +36,10 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
+
   /* transform: translateX(-200vw); */
-  transform: translateX(${(props) => props.slideIndex * -100}vw);
+
+  transform: translateX(${(props) => props.slideindexs * -100}vw);
   transition: all 1.5s ease;
 `;
 
@@ -42,7 +48,7 @@ const Slide = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: ${(props) => props.bg};
+  background-color: ${(props) => props.bgcolor};
 `;
 const ImageContainer = styled.div`
   flex: 1;
@@ -55,6 +61,7 @@ const Image = styled.img`
 
 const InfoContainer = styled.div`
   flex: 1;
+
   padding: 50px;
   margin-right: 30px;
 `;
@@ -79,13 +86,13 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [slideindexs, setSlideindexs] = useState(0);
 
   const handleClick = (direction) => {
     if (direction === "left") {
-      setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+      setSlideindexs(slideindexs > 0 ? slideindexs - 1 : 2);
     } else {
-      setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      setSlideindexs(slideindexs < 2 ? slideindexs + 1 : 0);
     }
   };
   return (
@@ -93,10 +100,10 @@ const Slider = () => {
       <Arrow direction="left" onClick={() => handleClick("left")}>
         <ArrowLeftOutlinedIcon />
       </Arrow>
-      <Wrapper slideIndex={slideIndex}>
+      <Wrapper slideindexs={slideindexs}>
         {sliderItems.map((item) => {
           return (
-            <Slide bg={item.bg} key={item.id}>
+            <Slide bgcolor={item.bgColor} key={item.id}>
               <ImageContainer>
                 <Image src={`../../public//images/${item.img}`} />
               </ImageContainer>
