@@ -1,4 +1,4 @@
-import EmailIcon from "@mui/icons-material/Email";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
@@ -120,15 +120,15 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <RoomIcon style={{ marginRight: "10px" }} />
+          <RoomIcon style={{ marginRight: "10px", color: "blue" }} />
           West Rajabajar Dhaka, 1215
         </ContactItem>
         <ContactItem>
-          <LocalPhoneIcon style={{ marginRight: "10px" }} />
+          <LocalPhoneIcon style={{ marginRight: "10px", color: "green" }} />
           +880 187 6489694
         </ContactItem>
         <ContactItem>
-          <EmailIcon style={{ marginRight: "10px" }} />
+          <EmailOutlinedIcon style={{ marginRight: "10px", color: "red" }} />
           richman@gmail.com
         </ContactItem>
         <Payment src="../../public/images/payment.png" />
