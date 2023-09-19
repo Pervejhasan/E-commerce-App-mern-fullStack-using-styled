@@ -1,6 +1,7 @@
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import styled from "styled-components";
+import { mobile } from "../../responsive.js";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
@@ -9,6 +10,7 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 const ImageContainer = styled.div`
   flex: 1;
@@ -17,6 +19,8 @@ const Image = styled.img`
   width: 100%;
   height: 80vh;
   object-fit: cover;
+
+  ${mobile({ height: "40vh", objectFit: "contain" })}
 `;
 const Title = styled.h2`
   font-weight: 200;
@@ -32,12 +36,15 @@ const Price = styled.span`
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0 50px;
+
+  ${mobile({ padding: "10px" })}
 `;
 const FilterContainer = styled.div`
   width: 50%;
   display: flex;
   justify-content: space-between;
   margin: 30px 0;
+  ${mobile({ width: "95%" })}
 `;
 const Filter = styled.div`
   display: flex;
@@ -60,13 +67,14 @@ const FilterSize = styled.select`
   margin-left: 10px;
   padding: 5px;
 `;
-const FilterSizeOption = styled.div``;
+const FilterSizeOption = styled.option``;
 
 const AddContainer = styled.div`
   display: flex;
   width: 50%;
   align-items: center;
   justify-content: space-between;
+  ${mobile({ width: "95%" })}
 `;
 const AmountContainer = styled.div`
   display: flex;

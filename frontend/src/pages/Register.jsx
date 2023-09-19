@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { mobile } from "../../responsive.js";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -7,6 +7,7 @@ const Container = styled.div`
     url("../../public/images/register-3.avif");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,14 +15,16 @@ const Container = styled.div`
 const Wrapper = styled.div`
   padding: 20px;
   width: 40%;
-  background-color: rgba(255, 253, 255, 0.779);
+  background-color: rgba(51, 50, 51, 0.844);
   border-radius: 5px;
+  ${mobile({ width: "75%" })}
 `;
 const Title = styled.h2`
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 500;
   text-align: center;
   padding: 10px;
+  color: whitesmoke;
 `;
 const Form = styled.form`
   display: flex;
@@ -39,6 +42,7 @@ const Input = styled.input`
 const Agreement = styled.p`
   font-size: 12px;
   margin: 20px 0;
+  color: white;
 `;
 const Button = styled.button`
   width: 40%;

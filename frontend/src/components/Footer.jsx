@@ -46,10 +46,7 @@ const Center = styled.div`
   padding: 20px;
 `;
 const Title = styled.h3`
-  margin-bottom: 30px;
-  ${mobile({
-    textAlign: "center",
-  })}
+  margin-bottom: 20px;
 `;
 const List = styled.ul`
   margin: 0;
@@ -66,10 +63,7 @@ const ListItem = styled.li`
   width: 50%;
   margin-bottom: 10px;
   transition: all 0.5s ease;
-  ${mobile({
-    textAlign: "center",
-    width: "100%",
-  })}
+
   &:hover {
     color: #f72f2f;
   }
@@ -84,12 +78,11 @@ const ContactItem = styled.div`
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  ${mobile({ justifyContent: "center" })}
 `;
 const Payment = styled.img`
   width: 50%;
   cursor: pointer;
-  ${mobile({ width: "100%" })}
+  ${mobile({ width: "80%" })}
 `;
 
 const Footer = () => {

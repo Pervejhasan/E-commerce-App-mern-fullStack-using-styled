@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { mobile } from "../../responsive.js";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import Products from "../components/Products";
-
 const Container = styled.div``;
 const Title = styled.h2`
   margin: 20px;
@@ -16,12 +16,20 @@ const FilterContainer = styled.div`
 `;
 const Filter = styled.div`
   margin: 10px;
+  ${mobile({ marginRight: "0px" })}
 `;
 
 const FilterText = styled.span`
   font-size: 20px;
   font-weight: 600;
   margin-right: 20px;
+  ${mobile({
+    fontSize: "16px",
+    margin: "0px",
+    marginBottom: "10px",
+    display: "flex",
+    flexDirection: "column",
+  })}
 `;
 const Select = styled.select`
   padding: 5px;

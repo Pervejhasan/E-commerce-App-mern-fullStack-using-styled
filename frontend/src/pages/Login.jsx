@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { mobile } from "../../responsive.js";
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -7,6 +7,7 @@ const Container = styled.div`
     url("../../public/images/register-4.avif");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +15,8 @@ const Container = styled.div`
 const Wrapper = styled.div`
   padding: 20px;
   width: 25%;
-  background-color: rgba(255, 253, 255, 0.779);
+  ${mobile({ width: "75%" })};
+  background-color: rgba(51, 50, 51, 0.844);
   border-radius: 5px;
 `;
 const Title = styled.h2`
@@ -22,6 +24,8 @@ const Title = styled.h2`
   font-weight: 300;
   text-align: center;
   padding: 10px;
+  color: white;
+  font-weight: 500;
 `;
 const Form = styled.form`
   display: flex;
@@ -55,7 +59,7 @@ const Link = styled.a`
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
-  color: #3131d9;
+  color: whitesmoke;
   font-weight: 500;
 `;
 const Login = () => {

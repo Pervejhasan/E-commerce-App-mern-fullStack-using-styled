@@ -49,7 +49,7 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
   text-align: center;
-  ${mobile({ fontSize: "18px", marginLeft: "10px" })}
+  ${mobile({ fontSize: "16px", marginLeft: "10px" })}
 `;
 
 /*====== center part end =====*/
