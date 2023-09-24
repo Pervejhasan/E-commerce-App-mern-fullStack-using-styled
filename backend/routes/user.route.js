@@ -51,11 +51,10 @@ router.get('/find/:id',verifyTokenAndAdmin, async (req,res)=>{
 //GET all users
 
 router.get('/',verifyTokenAndAdmin, async (req,res)=>{
-
-    
-
+    //new name of query
+    const query=req.query.new;
     try {
-      const users= await UserModel.find();
+      const users=  query?await UserModel.find().sort({_id:-1}).limit(2):await UserModel.find();
       res.status(200).json(users);
     } catch (error) {
         res.status(500).json(error)
