@@ -7,18 +7,16 @@ const ProductModel = require("../models/Product.model");
 const router = express.Router();
 
 // create product
-router.post("/",verifyTokenAndAdmin, async(req,res)=>{
-const newProduct=new ProductModel(req.body);
-// console.log(newProduct)
-try {
-  const savedProduct=await newProduct.save();
-  res.status(200).json(savedProduct);
-} catch (error) {
+router.post("/", verifyTokenAndAdmin, async (req, res) => {
+  const newProduct = new ProductModel(req.body);
+  // console.log(newProduct)
+  try {
+    const savedProduct = await newProduct.save();
+    res.status(200).json(savedProduct);
+  } catch (error) {
     res.status(500).json(error);
-}
-
-})
-
+  }
+});
 
 //update
 router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
@@ -46,57 +44,41 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-// //GET user
-// router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
-//   try {
-//     const user = await UserModel.findById(req.params.id);
-//     const { password, ...others } = user._doc;
-//     res.status(200).json(others);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
+//GET product
+router.get("/find/:id", async (req, res) => {
+  try {
+    const product = await ProductModel.findById(req.params.id);
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
-// //GET all users
-// router.get("/", verifyTokenAndAdmin, async (req, res) => {
-//   //new name of query
-//   const query = req.query.new;
-//   try {
-//     const users = query
-//       ? await UserModel.find().sort({ _id: -1 }).limit(2)
-//       : await UserModel.find();
-//     res.status(200).json(users);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
+//GET all products
+router.get("/", async (req, res) => {
+  //new name of query
+  const queryNew = req.query.new;
+  const queryCategory = req.query.category;
+  try {
+    let products;
+    if (queryNew) {
+      products = await ProductModel.find().sort({ createdAt: -1 }).limit(1);
+    } else if (queryCategory) {
+      products = await ProductModel.find({
+        categories: {
+          $in: [queryCategory],
+        },
+      });
+    } else {
+      products = await ProductModel.find();
+    }
 
-// //GET user statistics
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
-// router.get("/stats", verifyTokenAndAdmin, async (req, res) => {
-//   const date = new Date();
-//   const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
-//   try {
-//     const data = await UserModel.aggregate([
-//       {
-//         $match: { createdAt: { $gte: lastYear } },
-//       },
-//       {
-//         $project: {
-//           month: { $month: "$createdAt" },
-//         },
-//       },
-//       {
-//         $group: {
-//           _id: "$month",
-//           total: { $sum: 1 },
-//         },
-//       },
-//     ]);
-//     res.status(200).json(data);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
+
 
 module.exports = router;
