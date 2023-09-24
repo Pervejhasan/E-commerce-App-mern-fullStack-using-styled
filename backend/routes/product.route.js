@@ -6,7 +6,7 @@ const {
 const ProductModel = require("../models/Product.model");
 const router = express.Router();
 
-// create
+// create product
 router.post("/",verifyTokenAndAdmin, async(req,res)=>{
 const newProduct=new ProductModel(req.body);
 // console.log(newProduct)
@@ -21,36 +21,30 @@ try {
 
 
 //update
-// router.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
-//   if (req.body.password) {
-//     req.body.password = CryptoJS.AES.encrypt(
-//       req.body.password,
-//       process.env.PASS_SECRET
-//     ).toString();
-//   }
-//   try {
-//     const updatedUser = await UserModel.findByIdAndUpdate(
-//       req.params.id,
-//       {
-//         $set: req.body,
-//       },
-//       { new: true }
-//     );
-//     res.status(200).json(updatedUser);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
+router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const updatedProduct = await ProductModel.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updatedProduct);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
-// //DELETE
-// router.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
-//   try {
-//     await UserModel.findByIdAndDelete(req.params.id);
-//     res.status(200).json("user has been deleted...");
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// });
+//DELETE
+router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    await ProductModel.findByIdAndDelete(req.params.id);
+    res.status(200).json("product has been deleted...");
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
 
 // //GET user
 // router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
