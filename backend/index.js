@@ -4,7 +4,9 @@ const userRoute=require("./routes/user.route")
 const authRoute=require('./routes/auth.route')
 const productRoute=require('./routes/product.route')
 const orderRoute=require('./routes/order.route')
-const cartRoute=require('./routes/cart.route')
+const cartRoute=require('./routes/cart.route');
+const stripeRoute=require("./routes/stripe")
+const cors=require("cors")
 require('dotenv').config();
 
 
@@ -15,12 +17,14 @@ const DATABASE_URL=process.env.DATABASE_URL;
 const app=express();
 
 //middleware
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 app.use('/api/users',userRoute);
 app.use('/api/auth',authRoute);
 app.use('/api/products',productRoute);
 app.use('/api/orders',orderRoute);
 app.use('/api/carts',cartRoute);
+app.use('/api/checkout',stripeRoute);
 
 
 
